@@ -35,4 +35,9 @@ public class User extends BaseEntity implements Serializable {
     @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     private List<Pizza> pizzak;
 
+    @NotNull
+    @Column
+    private boolean isLoggedIn = false;
+
+
 }
