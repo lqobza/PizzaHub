@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService extends BaseService<User,UserRepository> {
+public class UserService extends BaseService<User> {
 
     @Autowired
     private UserRepository userRepository;

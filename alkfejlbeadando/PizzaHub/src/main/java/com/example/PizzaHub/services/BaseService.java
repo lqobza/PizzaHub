@@ -10,10 +10,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public abstract class BaseService<T extends BaseEntity, R extends BaseRepository> {
+public abstract class BaseService<T extends BaseEntity> {
 
     @Autowired
-    protected R rRepository;
+    private BaseRepository<T> rRepository;
 
     public List<T> getAll() {
         return rRepository.findAll();
@@ -25,6 +25,19 @@ public abstract class BaseService<T extends BaseEntity, R extends BaseRepository
             return ResponseEntity.ok(optionalT.get());
         }
         return ResponseEntity.notFound().build();
+    }
+
+    public ResponseEntity<Boolean> deleteT(Long id) {
+        Optional<T> optionalT = rRepository.findById(id);
+        if(optionalT.isPresent()) {
+            rRepository.delete(optionalT.get());
+            return ResponseEntity.ok(true);
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    public ResponseEntity<T> postT(T t) {
+        return ResponseEntity.ok(rRepository.save(t));
     }
 
 }

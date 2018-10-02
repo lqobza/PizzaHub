@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class FeltetService extends BaseService<Feltet,FeltetRepository> {
+public class FeltetService extends BaseService<Feltet> {
 
     @Autowired
     FeltetRepository feltetRepository;

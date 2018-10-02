@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PizzaService extends BaseService<Pizza, PizzaRepository> {
+public class PizzaService extends BaseService<Pizza> {
 
     @Autowired
     private PizzaRepository pizzaRepository;

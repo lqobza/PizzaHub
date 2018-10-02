@@ -16,7 +16,7 @@ import java.util.List;
 
 @RequestMapping("/pizzak")
 @RestController
-public class PizzaController extends BaseController<Pizza, PizzaService> {
+public class PizzaController extends BaseController<Pizza> {
 
     @Autowired
     private PizzaService pizzaService;
@@ -43,7 +43,6 @@ public class PizzaController extends BaseController<Pizza, PizzaService> {
     public ResponseEntity<Alap> getAlap(@PathVariable Long id) {
         return pizzaService.getAlap(id);
     }
-
 
 
 }

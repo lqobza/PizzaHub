@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("/alapok")
 @RestController
-public class AlapController extends BaseController<Alap,AlapService> {
+public class AlapController extends BaseController<Alap> {
 
     @Autowired
     private AlapService alapService;

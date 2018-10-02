@@ -31,6 +31,10 @@ public class User extends BaseEntity implements Serializable {
     @Column
     private String emailAddress;
 
+    @NotNull
+    @Column
+    private String userPermission;
+
     @JsonIgnore
     @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     private List<Pizza> pizzak;

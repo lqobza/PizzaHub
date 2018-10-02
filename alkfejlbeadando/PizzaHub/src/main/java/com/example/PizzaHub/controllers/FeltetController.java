@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("/feltetek")
 @RestController
-public class FeltetController extends BaseController<Feltet,FeltetService> {
+public class FeltetController extends BaseController<Feltet> {
 
     @Autowired
     private FeltetService feltetService;

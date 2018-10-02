@@ -1,5 +1,5 @@
-INSERT INTO users (user_name, password, email_address) VALUES ('Dani1', '12345', 'f3ral.riser@gmail.com');
-INSERT INTO users (user_name, password, email_address) VALUES ('Dani2', '12345', 'gyonidanielhivatalos@gmail.com');
+INSERT INTO users (user_name, password, email_address, user_permission) VALUES ('Dani1', '12345', 'f3ral.riser@gmail.com', 'admin');
+INSERT INTO users (user_name, password, email_address, user_permission) VALUES ('Dani2', '12345', 'gyonidanielhivatalos@gmail.com', 'guest');
 
 INSERT INTO feltetek (nev, ar) VALUES ('Sajt', '100');
 INSERT INTO feltetek (nev, ar) VALUES ('Sonka', '150');
