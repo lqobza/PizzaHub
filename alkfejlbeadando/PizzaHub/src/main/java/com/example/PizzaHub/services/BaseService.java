@@ -37,6 +37,7 @@ public abstract class BaseService<T extends BaseEntity> {
     }
 
     public ResponseEntity<T> postT(T t) {
+        System.out.println(t);
         return ResponseEntity.ok(rRepository.save(t));
     }
 

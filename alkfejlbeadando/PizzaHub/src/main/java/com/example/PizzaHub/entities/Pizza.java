@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
 
@@ -31,6 +32,7 @@ public class Pizza extends BaseHozzatevo implements Serializable {
     private List<Feltet> feltetek;
 
     @Column
+    @NotNull
     private String nev = "";
 
     @JsonIgnore
