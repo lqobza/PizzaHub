@@ -3,7 +3,7 @@ package com.example.PizzaHub.services;
 
 import com.example.PizzaHub.entities.Feltet;
 import com.example.PizzaHub.entities.Pizza;
-import com.example.PizzaHub.repository.FeltetRepository;
+import com.example.PizzaHub.repositories.FeltetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

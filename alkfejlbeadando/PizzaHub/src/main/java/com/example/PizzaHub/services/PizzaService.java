@@ -4,12 +4,11 @@ import com.example.PizzaHub.entities.Alap;
 import com.example.PizzaHub.entities.Feltet;
 import com.example.PizzaHub.entities.Pizza;
 import com.example.PizzaHub.entities.Teszta;
-import com.example.PizzaHub.repository.PizzaRepository;
+import com.example.PizzaHub.repositories.PizzaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service

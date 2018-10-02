@@ -1,7 +1,7 @@
 package com.example.PizzaHub.services;
 
 import com.example.PizzaHub.entities.BaseEntity;
-import com.example.PizzaHub.repository.BaseRepository;
+import com.example.PizzaHub.repositories.BaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

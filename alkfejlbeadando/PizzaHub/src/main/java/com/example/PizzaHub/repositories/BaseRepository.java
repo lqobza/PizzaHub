@@ -1,4 +1,4 @@
-package com.example.PizzaHub.repository;
+package com.example.PizzaHub.repositories;
 
 import com.example.PizzaHub.entities.BaseEntity;
 import org.springframework.data.repository.CrudRepository;
