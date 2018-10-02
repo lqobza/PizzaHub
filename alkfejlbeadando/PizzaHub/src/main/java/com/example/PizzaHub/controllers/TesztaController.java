@@ -10,21 +10,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RequestMapping("/tesztak")
 @RestController
-public class TesztaController {
+public class TesztaController extends BaseController<Teszta,TesztaService> {
 
     @Autowired
     private TesztaService tesztaService;
 
-    @RequestMapping(method = RequestMethod.GET)
-    public List<Teszta> getAll() { return tesztaService.getAll(); }
-
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Teszta> getTeszta(@PathVariable Long id) { return tesztaService.getTeszta(id); }
+//    @RequestMapping(method = RequestMethod.GET)
+//    public List<Teszta> getAll() { return tesztaService.getAll(); }
+//
+//    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+//    public ResponseEntity<Teszta> getTeszta(@PathVariable Long id) { return tesztaService.getTeszta(id); }
 
     @RequestMapping(value = "/{id}/pizzak", method = RequestMethod.GET)
     public ResponseEntity<Iterable<Pizza>> getPizzak(@PathVariable Long id) { return tesztaService.getPizzak(id); }
+
 }

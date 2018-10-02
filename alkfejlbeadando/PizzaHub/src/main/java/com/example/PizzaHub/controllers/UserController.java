@@ -14,16 +14,16 @@ import java.util.List;
 
 @RequestMapping("/users")
 @RestController
-public class UserController {
+public class UserController extends BaseController<User, UserService> {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping(method = RequestMethod.GET)
-    public List<User> getAll() { return userService.getAll(); }
-
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<User> getUser(@PathVariable Long id) { return userService.getUser(id); }
+//    @RequestMapping(method = RequestMethod.GET)
+//    public List<User> getAll() { return userService.getAll(); }
+//
+//    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+//    public ResponseEntity<User> getUser(@PathVariable Long id) { return userService.getUser(id); }
 
     @RequestMapping(value = "/{id}/pizzak", method = RequestMethod.GET)
     public ResponseEntity<Iterable<Pizza>> getPizzak(@PathVariable Long id) {return userService.getPizzak(id); }

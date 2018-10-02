@@ -19,6 +19,6 @@ public class Feltet extends BaseHozzatevo implements Serializable {
 
     @JsonIgnore
     @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-    private List<Pizza> pizzak;
+    protected List<Pizza> pizzak;
 
 }
