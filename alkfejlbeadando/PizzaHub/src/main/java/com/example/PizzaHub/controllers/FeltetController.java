@@ -17,12 +17,6 @@ public class FeltetController extends BaseController<Feltet> {
     @Autowired
     private FeltetService feltetService;
 
-//    @RequestMapping(method = RequestMethod.GET)
-//    public List<Feltet> getAll() { return feltetService.getAll(); }
-//
-//    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-//    public ResponseEntity<Feltet> getFeltet(@PathVariable Long id) { return feltetService.getFeltet(id); }
-
     @RequestMapping(value = "/{id}/pizzak", method = RequestMethod.GET)
     public ResponseEntity<Iterable<Pizza>> getPizzak(@PathVariable Long id) {return feltetService.getPizzak(id); }
 

@@ -18,18 +18,6 @@ public class PizzaService extends BaseService<Pizza> {
     @Autowired
     private PizzaRepository pizzaRepository;
 
-//    public List<Pizza> getAll() {
-//        return pizzaRepository.findAll();
-//    }
-//
-//    public ResponseEntity<Pizza> getPizza(Long id) {
-//        Optional<Pizza> optionalPizza = pizzaRepository.findById(id);
-//        if(optionalPizza.isPresent()) {
-//            return ResponseEntity.ok(optionalPizza.get());
-//        }
-//        return ResponseEntity.notFound().build();
-//    }
-
     public ResponseEntity<Iterable<Feltet>> getFeltetek(Long id) {
         Optional<Pizza> optionalPizza = pizzaRepository.findById(id);
         if (optionalPizza.isPresent()) {

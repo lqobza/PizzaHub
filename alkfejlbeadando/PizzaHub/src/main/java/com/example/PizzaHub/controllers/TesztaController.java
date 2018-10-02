@@ -17,12 +17,6 @@ public class TesztaController extends BaseController<Teszta> {
     @Autowired
     private TesztaService tesztaService;
 
-//    @RequestMapping(method = RequestMethod.GET)
-//    public List<Teszta> getAll() { return tesztaService.getAll(); }
-//
-//    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-//    public ResponseEntity<Teszta> getTeszta(@PathVariable Long id) { return tesztaService.getTeszta(id); }
-
     @RequestMapping(value = "/{id}/pizzak", method = RequestMethod.GET)
     public ResponseEntity<Iterable<Pizza>> getPizzak(@PathVariable Long id) { return tesztaService.getPizzak(id); }
 

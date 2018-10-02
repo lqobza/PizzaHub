@@ -14,17 +14,7 @@ public class TesztaService extends BaseService<Teszta> {
 
     @Autowired
     private TesztaRepository tesztaRepository;
-//
-//    public List<Teszta> getAll() { return tesztaRepository.findAll(); }
-//
-//    public ResponseEntity<Teszta> getTeszta(Long id) {
-//        Optional<Teszta> optionalTeszta = tesztaRepository.findById(id);
-//        if(optionalTeszta.isPresent()) {
-//            return ResponseEntity.ok(optionalTeszta.get());
-//        }
-//        return ResponseEntity.notFound().build();
-//    }
-//
+
     public ResponseEntity<Iterable<Pizza>> getPizzak(Long id) {
         Optional<Teszta> optionalTeszta = tesztaRepository.findById(id);
         if(optionalTeszta.isPresent()) {

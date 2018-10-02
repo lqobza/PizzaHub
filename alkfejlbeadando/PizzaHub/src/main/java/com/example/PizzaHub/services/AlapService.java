@@ -15,16 +15,6 @@ public class AlapService extends BaseService<Alap> {
     @Autowired
     private AlapRepository alapRepository;
 
-//    public List<Alap> getAll() { return alapRepository.findAll(); }
-//
-//    public ResponseEntity<Alap> getAlap(Long id) {
-//        Optional<Alap> optionalAlap =  alapRepository.findById(id);
-//        if(optionalAlap.isPresent()) {
-//            return ResponseEntity.ok(optionalAlap.get());
-//        }
-//        return ResponseEntity.notFound().build();
-//    }
-
     public ResponseEntity<Iterable<Pizza>> getPizzak(Long id) {
         Optional<Alap> optionalAlap =  alapRepository.findById(id);
         if(optionalAlap.isPresent()) {
