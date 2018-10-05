@@ -10,10 +10,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public abstract class BaseService<T extends BaseEntity> {
+public abstract class BaseService<T extends BaseEntity, R extends BaseRepository<T>> {
 
     @Autowired
-    private BaseRepository<T> rRepository;
+    R rRepository;
 
     public List<T> getAll() {
         return rRepository.findAll();

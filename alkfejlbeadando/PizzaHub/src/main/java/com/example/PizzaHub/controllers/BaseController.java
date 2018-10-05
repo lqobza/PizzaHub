@@ -9,21 +9,21 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public abstract class BaseController<T extends BaseEntity> {
+public abstract class BaseController<T extends BaseEntity, R extends BaseService> {
 
     @Autowired
-    private BaseService<T> rService;
+    R rService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<T> getAll() { return rService.getAll(); }
+    public List<?> getAll() { return rService.getAll(); }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<T> getT(@PathVariable Long id) { return rService.getT(id); }
+    public ResponseEntity<?> getT(@PathVariable Long id) { return rService.getT(id); }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Boolean> deleteT(@PathVariable Long id) { return rService.deleteT(id); }
+    public ResponseEntity<?> deleteT(@PathVariable Long id) { return rService.deleteT(id); }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<T> postT(@RequestBody T t) { return rService.postT(t); }
+    public ResponseEntity<?> postT(@RequestBody T t) { return rService.postT(t); }
 
 }

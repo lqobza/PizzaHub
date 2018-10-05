@@ -1,6 +1,6 @@
-INSERT INTO users (user_name, password, email_address, permission_rule_code) VALUES ('admin', 'admin', 'admin@gmail.com', 'ADMIN');
-INSERT INTO users (user_name, password, email_address, permission_rule_code) VALUES ('zek', 'zek', 'zek@gmail.com', 'POWERUSER');
-INSERT INTO users (user_name, password, email_address, permission_rule_code) VALUES ('tomi', 'tomi', 'tomi@gmail.com', 'USER');
+INSERT INTO users (user_name, password, email_address, role) VALUES ('admin', 'admin', 'admin@gmail.com', 1);
+INSERT INTO users (user_name, password, email_address, role) VALUES ('zek', 'zek', 'zek@gmail.com', 2);
+INSERT INTO users (user_name, password, email_address, role) VALUES ('tomi', 'tomi', 'tomi@gmail.com', 1);
 
 INSERT INTO issues (created_by_id, created_at, updated_at, title, description, place) VALUES (2, '2018-09-01 15:00:00.000', '2018-09-01 15:00:00.000', 'CIM1', 'Füstöl a gép (001-es)', 'PC8');
 INSERT INTO issues (created_by_id, created_at, updated_at, title, description, place) VALUES (2, '2018-09-02 17:00:10.000', '2018-09-02 17:00:10.000', 'CIM2', 'Rossz a projektor', 'PC2');

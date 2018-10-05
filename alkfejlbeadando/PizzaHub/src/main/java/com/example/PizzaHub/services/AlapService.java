@@ -10,13 +10,11 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class AlapService extends BaseService<Alap> {
+public class AlapService extends BaseService<Alap, AlapRepository> {
 
-    @Autowired
-    private AlapRepository alapRepository;
 
     public ResponseEntity<Iterable<Pizza>> getPizzak(Long id) {
-        Optional<Alap> optionalAlap =  alapRepository.findById(id);
+        Optional<Alap> optionalAlap =  rRepository.findById(id);
         if(optionalAlap.isPresent()) {
             return ResponseEntity.ok(optionalAlap.get().getPizzak());
         }

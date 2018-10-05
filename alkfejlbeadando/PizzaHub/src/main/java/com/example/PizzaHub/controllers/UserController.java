@@ -14,12 +14,9 @@ import java.util.List;
 
 @RequestMapping("/users")
 @RestController
-public class UserController extends BaseController<User> {
-
-    @Autowired
-    private UserService userService;
+public class UserController extends BaseController<User,UserService> {
 
     @RequestMapping(value = "/{id}/pizzak", method = RequestMethod.GET)
-    public ResponseEntity<Iterable<Pizza>> getPizzak(@PathVariable Long id) {return userService.getPizzak(id); }
+    public ResponseEntity<Iterable<Pizza>> getPizzak(@PathVariable Long id) {return rService.getPizzak(id); }
 
 }

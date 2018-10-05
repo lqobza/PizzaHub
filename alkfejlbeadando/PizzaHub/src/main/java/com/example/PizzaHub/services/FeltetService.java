@@ -11,13 +11,10 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class FeltetService extends BaseService<Feltet> {
-
-    @Autowired
-    FeltetRepository feltetRepository;
+public class FeltetService extends BaseService<Feltet, FeltetRepository> {
 
     public ResponseEntity<Iterable<Pizza>> getPizzak(Long id) {
-        Optional<Feltet> optionalFeltet = feltetRepository.findById(id);
+        Optional<Feltet> optionalFeltet = rRepository.findById(id);
         if(optionalFeltet.isPresent()) {
             return ResponseEntity.ok(optionalFeltet.get().getPizzak());
         }

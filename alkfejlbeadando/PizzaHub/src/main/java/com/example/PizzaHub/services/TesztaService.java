@@ -10,13 +10,11 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class TesztaService extends BaseService<Teszta> {
+public class TesztaService extends BaseService<Teszta,TesztaRepository> {
 
-    @Autowired
-    private TesztaRepository tesztaRepository;
 
     public ResponseEntity<Iterable<Pizza>> getPizzak(Long id) {
-        Optional<Teszta> optionalTeszta = tesztaRepository.findById(id);
+        Optional<Teszta> optionalTeszta = rRepository.findById(id);
         if(optionalTeszta.isPresent()) {
             return ResponseEntity.ok(optionalTeszta.get().getPizzak());
         }

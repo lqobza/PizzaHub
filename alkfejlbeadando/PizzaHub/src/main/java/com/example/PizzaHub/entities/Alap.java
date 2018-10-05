@@ -14,7 +14,7 @@ import java.util.List;
 @Table(name = "alapok")
 @Data
 @NoArgsConstructor
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 public class Alap extends BaseHozzatevo implements Serializable {
 
     @JsonIgnore
