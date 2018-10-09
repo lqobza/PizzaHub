@@ -16,24 +16,21 @@ import java.util.List;
 
 @RequestMapping("/pizzak")
 @RestController
-public class PizzaController extends BaseController<Pizza> {
-
-    @Autowired
-    private PizzaService pizzaService;
+public class PizzaController extends BaseController<Pizza,PizzaService> {
 
     @RequestMapping(value = "/{id}/feltetek", method = RequestMethod.GET)
     public ResponseEntity<Iterable<Feltet>> getFeltetek(@PathVariable Long id) {
-        return pizzaService.getFeltetek(id);
+        return rService.getFeltetek(id);
     }
 
     @RequestMapping(value = "/{id}/teszta", method = RequestMethod.GET)
     public ResponseEntity<Teszta> getTeszta(@PathVariable Long id) {
-        return pizzaService.getTeszta(id);
+        return rService.getTeszta(id);
     }
 
     @RequestMapping(value = "/{id}/alap", method = RequestMethod.GET)
     public ResponseEntity<Alap> getAlap(@PathVariable Long id) {
-        return pizzaService.getAlap(id);
+        return rService.getAlap(id);
     }
 
 

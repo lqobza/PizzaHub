@@ -12,12 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("/feltetek")
 @RestController
-public class FeltetController extends BaseController<Feltet> {
-
-    @Autowired
-    private FeltetService feltetService;
+public class FeltetController extends BaseController<Feltet,FeltetService> {
 
     @RequestMapping(value = "/{id}/pizzak", method = RequestMethod.GET)
-    public ResponseEntity<Iterable<Pizza>> getPizzak(@PathVariable Long id) {return feltetService.getPizzak(id); }
+    public ResponseEntity<Iterable<Pizza>> getPizzak(@PathVariable Long id) {return rService.getPizzak(id); }
 
 }

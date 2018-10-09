@@ -16,7 +16,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 public class Pizza extends BaseHozzatevo implements Serializable {
 
     @JsonIgnore

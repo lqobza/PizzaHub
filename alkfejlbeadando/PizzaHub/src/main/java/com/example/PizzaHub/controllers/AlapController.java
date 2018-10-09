@@ -12,12 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("/alapok")
 @RestController
-public class AlapController extends BaseController<Alap> {
+public class AlapController extends BaseController<Alap,AlapService> {
 
-    @Autowired
-    private AlapService alapService;
 
     @RequestMapping(value = "/{id}/pizzak", method = RequestMethod.GET)
-    public ResponseEntity<Iterable<Pizza>> getPizzak(@PathVariable Long id) { return alapService.getPizzak(id); }
+    public ResponseEntity<Iterable<Pizza>> getPizzak(@PathVariable Long id) { return rService.getPizzak(id); }
 
 }

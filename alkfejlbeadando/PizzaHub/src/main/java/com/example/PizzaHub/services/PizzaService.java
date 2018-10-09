@@ -12,13 +12,11 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class PizzaService extends BaseService<Pizza> {
+public class PizzaService extends BaseService<Pizza,PizzaRepository> {
 
-    @Autowired
-    private PizzaRepository pizzaRepository;
 
     public ResponseEntity<Iterable<Feltet>> getFeltetek(Long id) {
-        Optional<Pizza> optionalPizza = pizzaRepository.findById(id);
+        Optional<Pizza> optionalPizza = rRepository.findById(id);
         if (optionalPizza.isPresent()) {
             return ResponseEntity.ok(optionalPizza.get().getFeltetek());
         }
@@ -26,7 +24,7 @@ public class PizzaService extends BaseService<Pizza> {
     }
 
     public ResponseEntity<Teszta> getTeszta(Long id) {
-        Optional<Pizza> optionalPizza = pizzaRepository.findById(id);
+        Optional<Pizza> optionalPizza = rRepository.findById(id);
         if(optionalPizza.isPresent()) {
             return ResponseEntity.ok(optionalPizza.get().getTeszta());
         }
@@ -34,7 +32,7 @@ public class PizzaService extends BaseService<Pizza> {
     }
 
     public ResponseEntity<Alap> getAlap(Long id) {
-        Optional<Pizza> optionalPizza = pizzaRepository.findById(id);
+        Optional<Pizza> optionalPizza = rRepository.findById(id);
         if(optionalPizza.isPresent()) {
             return ResponseEntity.ok(optionalPizza.get().getAlap());
         }

@@ -14,7 +14,7 @@ import java.util.List;
 @Table(name = "feltetek")
 @Data
 @NoArgsConstructor
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 public class Feltet extends BaseHozzatevo implements Serializable {
 
     @JsonIgnore

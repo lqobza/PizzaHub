@@ -12,12 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("/tesztak")
 @RestController
-public class TesztaController extends BaseController<Teszta> {
-
-    @Autowired
-    private TesztaService tesztaService;
+public class TesztaController extends BaseController<Teszta, TesztaService> {
 
     @RequestMapping(value = "/{id}/pizzak", method = RequestMethod.GET)
-    public ResponseEntity<Iterable<Pizza>> getPizzak(@PathVariable Long id) { return tesztaService.getPizzak(id); }
+    public ResponseEntity<Iterable<Pizza>> getPizzak(@PathVariable Long id) { return rService.getPizzak(id); }
 
 }
