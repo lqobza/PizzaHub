@@ -5,13 +5,16 @@ import hu.elte.keza.issuetracker.entities.Label;
 import hu.elte.keza.issuetracker.entities.Message;
 import hu.elte.keza.issuetracker.repositories.LabelRepository;
 import hu.elte.keza.issuetracker.repositories.MessageRepository;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,6 +30,7 @@ public class IssueController extends BaseController<Issue, CrudRepository<Issue,
     private LabelRepository labelRepository;
     
     @GetMapping("/{id}/messages")
+    @Secured({"ROLE_USER"})
     public ResponseEntity<Iterable<Message>> messages(@PathVariable Long id) {
         Optional<Issue> optionalIssue = getEntity(id);
         if(optionalIssue.isPresent()) {
@@ -66,6 +70,22 @@ public class IssueController extends BaseController<Issue, CrudRepository<Issue,
         }
         return ResponseEntity.notFound().build();
     }
-    
+    @PutMapping("/{id}/labels")
+    public ResponseEntity<Iterable<Label>> addLabel(
+            @PathVariable Long id,
+            @RequestBody List<Label> labels){
+        Optional<Issue> optionalIssue = getEntity(id);
+        if(optionalIssue.isPresent()) {
+            for(Label label : labels) {
+                if(label.getId() != null) {
+                    labelRepository.save(label);
+                }
+            }
+            optionalIssue.get().setLabels(labels);
+            saveEntity(optionalIssue.get());
+            return ResponseEntity.ok(optionalIssue.get().getLabels());
+        }
+        return ResponseEntity.notFound().build();
+    }
     
 }

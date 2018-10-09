@@ -19,7 +19,6 @@ public abstract class BaseController<T extends BaseEntity, S extends BaseService
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> getT(@PathVariable Long id) { return rService.getT(id); }
-
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteT(@PathVariable Long id) { return rService.deleteT(id); }
 

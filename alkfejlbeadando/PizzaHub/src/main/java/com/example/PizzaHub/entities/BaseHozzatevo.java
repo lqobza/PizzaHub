@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
+
 @Data
 @MappedSuperclass
 @EqualsAndHashCode(callSuper = false)

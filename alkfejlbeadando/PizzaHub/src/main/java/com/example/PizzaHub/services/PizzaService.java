@@ -12,8 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class PizzaService extends BaseService<Pizza,PizzaRepository> {
-
+public class PizzaService extends BaseService<Pizza, PizzaRepository> {
 
     public ResponseEntity<Iterable<Feltet>> getFeltetek(Long id) {
         Optional<Pizza> optionalPizza = rRepository.findById(id);

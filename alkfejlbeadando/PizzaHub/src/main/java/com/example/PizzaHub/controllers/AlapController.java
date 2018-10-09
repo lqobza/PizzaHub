@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AlapController extends BaseController<Alap,AlapService> {
 
-
     @RequestMapping(value = "/{id}/pizzak", method = RequestMethod.GET)
     public ResponseEntity<Iterable<Pizza>> getPizzak(@PathVariable Long id) { return rService.getPizzak(id); }
 

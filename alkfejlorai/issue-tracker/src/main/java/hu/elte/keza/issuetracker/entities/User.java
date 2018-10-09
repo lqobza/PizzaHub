@@ -36,7 +36,7 @@ public class User extends BaseEntity implements Serializable{
     
     @NotNull
     @Column
-    private String permissionRuleCode;
+    private Role role;
 
     @JsonIgnore
     @OneToMany(targetEntity = Issue.class, mappedBy = "createdBy")
@@ -45,4 +45,10 @@ public class User extends BaseEntity implements Serializable{
     @JsonIgnore
     @OneToMany(targetEntity = Message.class, mappedBy = "createdBy")
     private List<Message> messages;
+    
+    public enum Role{
+        ROLE_USER,
+        ROLE_ADMIN,
+        ROLE_SUPERADMIN
+    }
 }
