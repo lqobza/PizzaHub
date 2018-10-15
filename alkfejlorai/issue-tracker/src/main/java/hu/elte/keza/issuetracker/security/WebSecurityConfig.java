@@ -19,16 +19,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-    .cors()
-        .and()
-    .csrf().disable()
-    .authorizeRequests()
-        .anyRequest().authenticated()
-        .and()
-    .httpBasic()
-        .and()
-    .sessionManagement()
-        .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        .cors()
+            .and()
+        .csrf().disable()
+        .authorizeRequests()
+            .anyRequest().authenticated()
+            .and()
+        .httpBasic()
+            .and()
+        .sessionManagement()
+            .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }   
     @Autowired
     protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
