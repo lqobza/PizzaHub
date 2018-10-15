@@ -1,10 +1,8 @@
 package com.example.PizzaHub.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -14,10 +12,15 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class User extends BaseEntity implements Serializable {
+
+    public User(String userName, String password,String emailAddress,Role role) {
+        this.userName = userName;
+        this.password = password;
+        this.emailAddress = emailAddress;
+        this.role = role;
+    }
 
     @NotNull
     @Column
@@ -33,10 +36,11 @@ public class User extends BaseEntity implements Serializable {
 
     @NotNull
     @Column
-    private String userPermission;
+    private Role role;
 
     @JsonIgnore
     @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     private List<Pizza> pizzak;
+
 
 }

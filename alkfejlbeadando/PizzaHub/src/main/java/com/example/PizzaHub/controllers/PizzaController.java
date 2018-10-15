@@ -7,10 +7,9 @@ import com.example.PizzaHub.entities.Teszta;
 import com.example.PizzaHub.services.PizzaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RequestMapping("/pizzak")
 @RestController
@@ -30,6 +29,9 @@ public class PizzaController extends BaseController<Pizza,PizzaService> {
     public ResponseEntity<Alap> getAlap(@PathVariable Long id) {
         return rService.getAlap(id);
     }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<?> postPizza(@RequestBody Map<String,Object> map) { return rService.postPizza(map); }
 
 
 }

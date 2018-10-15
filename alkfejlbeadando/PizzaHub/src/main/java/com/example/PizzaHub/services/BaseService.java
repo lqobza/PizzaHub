@@ -36,9 +36,9 @@ public abstract class BaseService<T extends BaseEntity, R extends BaseRepository
         return ResponseEntity.notFound().build();
     }
 
-    public ResponseEntity<T> postT(T t) {
-        System.out.println(t);
-        return ResponseEntity.ok(rRepository.save(t));
-    }
+//    public ResponseEntity<T> postT(T t) {
+//        System.out.println(t);
+//        return ResponseEntity.ok(rRepository.save(t));
+//    }
 
 }

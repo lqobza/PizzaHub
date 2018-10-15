@@ -9,15 +9,24 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.List;
 
 @Entity
 @Table(name = "pizzak")
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class Pizza extends BaseHozzatevo implements Serializable {
+
+    public Pizza(String nev, int ar, Teszta teszta, Alap alap, List<Feltet> feltetek) {
+        this.nev = nev;
+        this.ar = ar;
+        this.teszta = teszta;
+        this.alap = alap;
+        this.feltetek = feltetek;
+        this.users = Collections.emptyList();
+    }
 
     @JsonIgnore
     @ManyToOne

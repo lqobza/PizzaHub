@@ -5,9 +5,11 @@ import com.example.PizzaHub.entities.Feltet;
 import com.example.PizzaHub.entities.Pizza;
 import com.example.PizzaHub.repositories.FeltetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -21,4 +23,16 @@ public class FeltetService extends BaseService<Feltet, FeltetRepository> {
         return ResponseEntity.notFound().build();
     }
 
+    public ResponseEntity<Feltet> postFeltet(Map<String,Object> map) {
+        try {
+            if (!rRepository.findByNev(map.get("nev").toString()).isPresent()) {
+                Feltet alap = new Feltet(map.get("nev").toString(), Integer.parseInt((String) map.get("ar")));
+                return ResponseEntity.ok(rRepository.save(alap));
+            }
+        } catch (Exception e) {
+            System.out.println("Hiba van a mátrixban! ");
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.IM_USED).build();
+    }
 }

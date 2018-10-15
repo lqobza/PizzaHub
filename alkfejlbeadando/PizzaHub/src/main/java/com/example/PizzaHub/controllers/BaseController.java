@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public abstract class BaseController<T extends BaseEntity, S extends BaseService> {
@@ -22,7 +23,7 @@ public abstract class BaseController<T extends BaseEntity, S extends BaseService
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteT(@PathVariable Long id) { return rService.deleteT(id); }
 
-    @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<?> postT(@RequestBody T t) { return rService.postT(t); }
+//    @RequestMapping(method = RequestMethod.POST)
+//    public ResponseEntity<?> postT(@RequestBody Map<String,Object> t) { return rService.postT(t); }
 
 }
