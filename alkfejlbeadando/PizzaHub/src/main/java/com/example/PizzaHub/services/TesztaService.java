@@ -25,7 +25,9 @@ public class TesztaService extends BaseService<Teszta,TesztaRepository> {
     public ResponseEntity<Teszta> postTeszta(Map<String,Object> map) {
         try {
             if(!rRepository.findByNev(map.get("nev").toString()).isPresent()) {
-                Teszta teszta = new Teszta(map.get("nev").toString(), Integer.parseInt((String) map.get("ar")));
+                Teszta teszta = new Teszta();
+                teszta.setAr(Integer.parseInt(map.get("ar").toString()));
+                teszta.setNev(map.get("nev").toString());
                 return ResponseEntity.ok(rRepository.save(teszta));
             }
         } catch (Exception e) {

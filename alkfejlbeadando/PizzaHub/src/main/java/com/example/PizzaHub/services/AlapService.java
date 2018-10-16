@@ -28,7 +28,9 @@ public class AlapService extends BaseService<Alap, AlapRepository> {
     public ResponseEntity<Alap> postAlap(Map<String,Object> map) {
         try {
             if (!rRepository.findByNev(map.get("nev").toString()).isPresent()) {
-                Alap alap = new Alap(map.get("nev").toString(), Integer.parseInt((String) map.get("ar")));
+                Alap alap = new Alap();
+                alap.setAr(Integer.parseInt(map.get("ar").toString()));
+                alap.setNev(map.get("nev").toString());
                 return ResponseEntity.ok(rRepository.save(alap));
             }
         } catch (Exception e) {

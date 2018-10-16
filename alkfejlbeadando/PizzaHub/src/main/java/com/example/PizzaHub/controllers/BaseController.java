@@ -4,6 +4,7 @@ import com.example.PizzaHub.entities.BaseEntity;
 import com.example.PizzaHub.services.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +21,8 @@ public abstract class BaseController<T extends BaseEntity, S extends BaseService
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> getT(@PathVariable Long id) { return rService.getT(id); }
+
+    @Secured({"ROLE_ADMIN"})
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteT(@PathVariable Long id) { return rService.deleteT(id); }
 

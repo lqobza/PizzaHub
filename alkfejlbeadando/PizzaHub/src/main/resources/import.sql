@@ -1,4 +1,4 @@
-INSERT INTO users (user_name, password, email_address, role) VALUES ('Dani1', '$2a$04$YDiv9c./ytEGZQopFfExoOgGlJL6/o0er0K.hiGb5TGKHUL8Ebn..', 'f3ral.riser@gmail.com', 1);
+INSERT INTO users (user_name, password, email_address, role) VALUES ('Dani1', '$2a$04$YDiv9c./ytEGZQopFfExoOgGlJL6/o0er0K.hiGb5TGKHUL8Ebn..', 'f3ral.riser@gmail.com', 0);
 INSERT INTO users (user_name, password, email_address, role) VALUES ('Dani2', '$2a$04$YDiv9c./ytEGZQopFfExoOgGlJL6/o0er0K.hiGb5TGKHUL8Ebn..', 'gyonidanielhivatalos@gmail.com', 1);
 
 INSERT INTO feltetek (nev, ar) VALUES ('Sajt', '100');

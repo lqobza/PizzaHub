@@ -1,5 +1,11 @@
 package com.example.PizzaHub.repositories;
 
 import com.example.PizzaHub.entities.Teszta;
+import org.springframework.stereotype.Repository;
 
-public interface TesztaRepository extends BaseRepository<Teszta> {}
+import java.util.Optional;
+
+@Repository
+public interface TesztaRepository extends BaseRepository<Teszta> {
+    Optional<Teszta> findByNev(String nev);
+}

@@ -26,8 +26,10 @@ public class FeltetService extends BaseService<Feltet, FeltetRepository> {
     public ResponseEntity<Feltet> postFeltet(Map<String,Object> map) {
         try {
             if (!rRepository.findByNev(map.get("nev").toString()).isPresent()) {
-                Feltet alap = new Feltet(map.get("nev").toString(), Integer.parseInt((String) map.get("ar")));
-                return ResponseEntity.ok(rRepository.save(alap));
+                Feltet feltet = new Feltet();
+                feltet.setNev(map.get("nev").toString());
+                feltet.setAr(Integer.parseInt(map.get("ar").toString()));
+                return ResponseEntity.ok(rRepository.save(feltet));
             }
         } catch (Exception e) {
             System.out.println("Hiba van a mátrixban! ");

@@ -1,10 +1,7 @@
 package com.example.PizzaHub.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -14,38 +11,30 @@ import java.util.List;
 
 @Entity
 @Table(name = "pizzak")
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class Pizza extends BaseHozzatevo implements Serializable {
 
-    public Pizza(String nev, int ar, Teszta teszta, Alap alap, List<Feltet> feltetek) {
-        this.nev = nev;
-        this.ar = ar;
-        this.teszta = teszta;
-        this.alap = alap;
-        this.feltetek = feltetek;
-        this.users = Collections.emptyList();
-    }
-
+    @JoinColumn(updatable = false)
     @JsonIgnore
-    @ManyToOne
+    @ManyToOne(targetEntity = Teszta.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     private Teszta teszta;
 
+    @JoinColumn(updatable = false)
     @JsonIgnore
-    @ManyToOne
+    @ManyToOne(targetEntity = Alap.class, cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     private Alap alap;
 
     @JsonIgnore
-    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @ManyToMany(targetEntity = Feltet.class,cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     private List<Feltet> feltetek;
 
-    @Column
-    @NotNull
-    private String nev = "";
 
     @JsonIgnore
-    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @ManyToMany(targetEntity = User.class,cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     private List<User> users;
 
 }

@@ -1,30 +1,23 @@
 package com.example.PizzaHub.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import lombok.*;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
 @Table(name = "alapok")
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class Alap extends BaseHozzatevo implements Serializable {
 
-    public Alap(String nev, int ar) {
-        this.nev = nev;
-        this.ar = ar;
-        this.pizzak = Collections.emptyList();
-    }
-
     @JsonIgnore
-    @OneToMany
+    @OneToMany(targetEntity = Pizza.class,cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     private List<Pizza> pizzak;
 }

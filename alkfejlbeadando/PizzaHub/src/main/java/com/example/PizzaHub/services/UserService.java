@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.Map;
 import java.util.Optional;
@@ -38,7 +39,11 @@ public class UserService extends BaseService<User,UserRepository> implements Use
     public ResponseEntity<User> postUser(Map<String,Object> map) {
         try {
             if (!rRepository.findByUserName(map.get("username").toString()).isPresent() && !rRepository.findByEmailAddress(map.get("emailaddress").toString()).isPresent()) {
-                User user = new User(map.get("username").toString(), map.get("password").toString(), map.get("emailaddress").toString(), Role.ROLE_USER);
+                User user = new User();
+                user.setEmailAddress(map.get("emailaddress").toString());
+                user.setPassword(new BCryptPasswordEncoder().encode(map.get("password").toString()));
+                user.setUserName(map.get("username").toString());
+                user.setRole(Role.ROLE_USER);
                 return ResponseEntity.ok(rRepository.save(user));
             }
         } catch (Exception e) {

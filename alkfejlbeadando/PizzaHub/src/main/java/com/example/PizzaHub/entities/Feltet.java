@@ -1,10 +1,7 @@
 package com.example.PizzaHub.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,18 +10,16 @@ import java.util.List;
 
 @Entity
 @Table(name = "feltetek")
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class Feltet extends BaseHozzatevo implements Serializable {
 
-    public Feltet(String nev, int ar) {
-        this.nev = nev;
-        this.ar = ar;
-        this.pizzak = Collections.emptyList();
-    }
 
     @JsonIgnore
-    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @ManyToMany(targetEntity = Pizza.class,cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     protected List<Pizza> pizzak;
 
 }
